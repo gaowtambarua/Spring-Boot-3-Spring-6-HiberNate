@@ -12,20 +12,6 @@ public class BaseballCoach implements Coach{
         System.out.println("In constructor: "+getClass().getSimpleName());
     }
 
-    //define our init method
-    @PostConstruct
-    public void doMyStartupStuff()
-    {
-        System.out.println("In doMyStartupStuff(): "+getClass().getSimpleName());
-    }
-
-    // define our destory method
-
-    @PreDestroy
-    public void doMyCleanupStuff()
-    {
-        System.out.println("In doMyCleanupStuff(): "+getClass().getSimpleName());
-    }
 
     @Override
     public String getDailyWorkout() {
