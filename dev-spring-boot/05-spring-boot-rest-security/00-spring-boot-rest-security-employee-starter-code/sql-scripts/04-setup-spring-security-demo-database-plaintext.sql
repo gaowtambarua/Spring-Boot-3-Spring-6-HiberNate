@@ -36,6 +36,7 @@ CREATE TABLE `authorities` (
   CONSTRAINT `authorities_ibfk_1` FOREIGN KEY (`username`) REFERENCES `users` (`username`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+--- this is one to many  karon ekjon user[`users` (`username`)] many roles bozy rakbe
 --
 -- Inserting data for table `authorities`
 --
