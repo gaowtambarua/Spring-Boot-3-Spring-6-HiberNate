@@ -8,5 +8,19 @@
 <h3>Student Registration Form</h3>
 
 The studnet is confirmed: <span th:text="${student.firstName}+' '+${student.lastName}"></span>
+
+<br><br>
+Country: <span th:text="${student.country}"></span>
+
+<br><br>
+Favorite Programing Language: <span th:text="${student.favoriteLanguage}"></span>
+
+<br><br>
+<!--Favorite Operating Systems: <span th:text="${student.favoriteSystems}"></span>-->
+Favorite Operating Systems:
+<ul>
+    <li th:each="temSystem : ${student.favoriteSystems}" th:text="${temSystem}"></li>
+</ul>
+
 </body>
 </html>
