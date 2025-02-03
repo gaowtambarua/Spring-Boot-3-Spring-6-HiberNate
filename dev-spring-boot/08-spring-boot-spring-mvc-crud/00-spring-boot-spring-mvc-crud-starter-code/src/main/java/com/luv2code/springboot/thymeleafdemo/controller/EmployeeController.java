@@ -50,7 +50,7 @@ public class EmployeeController {
         employeeService.save(thEmployee);
 
         // use a redirect to prevent duplicate submissions
-        return "redirect:/employees/list";n
+        return "redirect:/employees/list";
     }
 
     @GetMapping("/showFormForUpdate")
