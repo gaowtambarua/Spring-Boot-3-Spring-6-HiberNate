@@ -1,6 +1,7 @@
 package com.gaowtam.cruddemo;
 
 import com.gaowtam.cruddemo.dao.AppDAO;
+import com.gaowtam.cruddemo.entity.Course;
 import com.gaowtam.cruddemo.entity.Instructor;
 import com.gaowtam.cruddemo.entity.InstructorDetail;
 import org.springframework.boot.CommandLineRunner;
@@ -35,8 +36,40 @@ public class CruddemoApplication {
 
 //			findInstructorDetail(appDAO);
 
-			deleteInstructorDetail(appDAO);
+//			deleteInstructorDetail(appDAO);
+
+			createInstructorWithCourses(appDAO);
 		};
+	}
+
+	private void createInstructorWithCourses(AppDAO appDAO) {
+		// create ths instructor
+		Instructor tempInstructor=new Instructor("Susan","Public","Susa@gmail.com");
+
+		// create th instructory detail
+		InstructorDetail tempInstructorDetail=new InstructorDetail("youtube.com",
+				"Video Games !!!");
+
+		// associate the objects
+		tempInstructor.setInstructorDetail(tempInstructorDetail);
+
+		// create some corses
+		Course tempCourse1=new Course("Air Guiter - The Ultimate Guide");
+		Course tempCourse2=new Course("The PinBall Masterclass");
+
+		//add courses to instructor
+		tempInstructor.add(tempCourse1);
+		tempInstructor.add(tempCourse2);
+
+		//save the instructor
+		//
+ 		//Note: this will Also save the courses
+		// because of CascadeType.PERSIST
+		System.out.println("Saving instructor: "+tempInstructor);
+		System.out.println("The courses: "+tempInstructor.getCourses());
+		appDAO.save(tempInstructor);
+
+		System.out.println("Done!");
 	}
 
 	private void deleteInstructorDetail(AppDAO dao) {
