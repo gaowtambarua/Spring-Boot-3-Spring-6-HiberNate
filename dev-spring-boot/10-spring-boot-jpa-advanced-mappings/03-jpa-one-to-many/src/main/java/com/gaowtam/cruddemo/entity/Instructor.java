@@ -41,8 +41,22 @@ public class Instructor {
     @JoinColumn(name="instructor_detail_id")
     private InstructorDetail instructorDetail;
 
-    @OneToMany(mappedBy = "instructor",cascade = {CascadeType.PERSIST,CascadeType.MERGE,
-            CascadeType.DETACH,CascadeType.REFRESH})
+//    @OneToOne FetchType.EAGER
+//    @OneToMany FetchType.LAZY
+//    @ManyToOne FetchType.EAGER
+//    @ManyToMany FetchType.LAZY
+
+//    FetchType.EAGER
+//    @OneToMany(mappedBy = "instructor",
+//            fetch = FetchType.EAGER,
+//            cascade = {CascadeType.PERSIST,CascadeType.MERGE,
+//            CascadeType.DETACH,CascadeType.REFRESH})
+//    private List<Course> courses;
+
+    @OneToMany(mappedBy = "instructor",
+            fetch = FetchType.LAZY,
+            cascade = {CascadeType.PERSIST,CascadeType.MERGE,
+                    CascadeType.DETACH,CascadeType.REFRESH})
     private List<Course> courses;
 
     public Instructor()
