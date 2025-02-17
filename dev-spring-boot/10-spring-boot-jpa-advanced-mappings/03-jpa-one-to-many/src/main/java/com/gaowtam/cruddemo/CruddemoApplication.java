@@ -44,8 +44,69 @@ public class CruddemoApplication {
 
 //			findInstructorWithCorses(appDAO); // FetchType.EAGER Loded
 
-			findCoursesForInstructor(appDAO); // FetchType.LAZY Loded
+//			findCoursesForInstructor(appDAO); // FetchType.LAZY Loded
+
+//			findInstructorWithCorsesJoinFetch(appDAO); // FetchType.EAGER Loded er kaz korbe
+
+//			updateInstructor(appDAO);
+
+//			updateCourse(appDAO);
+
+//			deleteInstructor(appDAO);
+
+//			deleteCourse(appDAO);
+
+
 		};
+	}
+
+	private void deleteCourse(AppDAO appDAO) {
+		int theId=10;
+		System.out.println("Deleting couurse id: "+theId);
+		appDAO.deleteCourseById(theId);
+		System.out.println("Done!");
+	}
+
+	private void updateCourse(AppDAO appDAO) {
+		int theId=10;
+
+		//find the course
+		System.out.println("Finding course id: "+theId);
+		Course tempCourse=appDAO.findCourseById(theId);
+
+		// update the course
+		System.out.println("Updating course id: "+theId);
+		tempCourse.setTitle("Enjoy the Simple Things");
+		appDAO.update(tempCourse);
+		System.out.println("Done!");
+	}
+
+	private void updateInstructor(AppDAO appDAO) {
+		int theId=1;
+
+		//find the instructor
+		System.out.println("Finding instructor id: "+theId);
+		Instructor tempInstructor=appDAO.findInstructorById(theId);
+
+		//update the instructor
+		System.out.println("Update instructor id: "+theId);
+		tempInstructor.setLastName("TESTER");
+		appDAO.update(tempInstructor);
+
+		System.out.println("Done!");
+	}
+
+	private void findInstructorWithCorsesJoinFetch(AppDAO appDAO) {
+		int theId=1;
+
+		//find the instructor
+		System.out.println("Finding instructor id: "+theId);
+		Instructor tempInstructor=appDAO.findInstructorByIdJoinFetch(theId);
+
+		System.out.println("tempInstructor: "+tempInstructor);
+		System.out.println("the associate courses: "+tempInstructor.getCourses());
+		System.out.println("the instructor detail: "+tempInstructor.getInstructorDetail());
+		System.out.println("Done!");
 	}
 
 	private void findCoursesForInstructor(AppDAO appDAO) {
@@ -129,9 +190,9 @@ public class CruddemoApplication {
 	}
 
 	private void deleteInstructor(AppDAO appDAO) {
-		int theId=3;
+		int theId=1;
 		System.out.println("Deleting instructor id: "+theId);
-		appDAO.deleteInstructorById(3);
+		appDAO.deleteInstructorById(theId);
 		System.out.println("Done!");
 	}
 
