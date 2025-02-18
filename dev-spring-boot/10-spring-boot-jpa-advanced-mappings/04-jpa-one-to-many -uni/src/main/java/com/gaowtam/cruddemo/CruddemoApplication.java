@@ -34,8 +34,18 @@ public class CruddemoApplication {
 
 //			createCourseAndReviews(appDAO);
 
-			retrieveCourseAndReviews(appDAO);
+//			retrieveCourseAndReviews(appDAO);
+
+			deleteCourseAndReviews(appDAO);
 		};
+	}
+
+	private void deleteCourseAndReviews(AppDAO appDAO) {
+		int theId=15;
+
+		System.out.println("Delete Course id: "+theId);
+		appDAO.deleteCourseById(theId);
+		System.out.println("Done!");
 	}
 
 	private void retrieveCourseAndReviews(AppDAO appDAO) {
@@ -53,10 +63,10 @@ public class CruddemoApplication {
 
 	private void createCourseAndReviews(AppDAO appDAO) {
 		// create a course
-		Course tempCourse=new Course("Pacman - How To Score One Million Points");
+		Course tempCourse=new Course("Pacman - How To Score One Million Pointsa");
 
 		// add some reviews
-		tempCourse.addReview(new Review("Great course ... loved it! "));
+		tempCourse.addReview(new Review("Great course .... loved it! "));
 		tempCourse.addReview(new Review("Cool course,job well done."));
 		tempCourse.addReview(new Review("What a dumb course,you are an idiot!"));
 
