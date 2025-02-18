@@ -1,0 +1,44 @@
+package com.gaowtam.cruddemo.dao;
+
+import com.gaowtam.cruddemo.entity.Course;
+import com.gaowtam.cruddemo.entity.Instructor;
+import com.gaowtam.cruddemo.entity.InstructorDetail;
+import com.gaowtam.cruddemo.entity.Student;
+
+import java.util.List;
+
+public interface AppDAO {
+    void save(Instructor thInstructor);
+
+    Instructor findInstructorById(int theId);
+
+    void deleteInstructorById(int theId);
+
+    InstructorDetail findInstructorDetailById(int theId);
+
+    void deleteInstructorDetailById(int theId);
+
+    List<Course> findCoursesByInstructorId(int theId);
+
+    Instructor findInstructorByIdJoinFetch(int theId);
+
+    void update(Instructor tempInstructor);
+
+    void update(Course tempCourse);
+
+    Course findCourseById(int theId);
+
+    void deleteCourseById(int theId);
+
+    void save(Course theCourse);
+
+    Course findCourseAndReviewsByCourseId(int theId);//this function work like FEWTCH.EGER
+
+    Course findCourseAndStudentsByCourseId(int theId);//this function work like FEWTCH.EGER
+
+    Student findStudentAndCourseByStudentId(int theId);//this function work like FEWTCH.EGER
+
+    void update(Student tempStudent);
+
+    void deleteStudentById(int theId);
+}
