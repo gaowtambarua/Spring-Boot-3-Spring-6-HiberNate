@@ -19,7 +19,8 @@ public class MyDemoLoggingAspect {
 //    @Before("execution(* add*())") // any return type and any add method with start add name allow
 //    @Before("execution(* add*(com.gaowtam.aopdemo.Account))")
 //    @Before("execution(* add*(com.gaowtam.aopdemo.Account,..))") //(..) any numnbers of argument
-    @Before("execution(* add*(..))") //(..) any numnbers of argument
+//    @Before("execution(* add*(..))") //(..) any numnbers of argument
+@Before("execution(* com.gaowtam.aopdemo.dao.*.*(..))") //(..) any class,any method,any numnbers of argument
     public void beforeAddAccountAdvice()
     {
         System.out.println("\n====>>> Executing @Before advice on addAccount()");
