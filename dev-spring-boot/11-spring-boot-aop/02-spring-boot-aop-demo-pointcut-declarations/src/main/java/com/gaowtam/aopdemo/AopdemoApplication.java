@@ -37,6 +37,8 @@ public class AopdemoApplication {
 //		theAccountDAO.addAccount();
 
 		Account myAccount=new Account();
+		myAccount.setName("Nabela");
+		myAccount.setLevel("Haque");
 		theAccountDAO.addAccount(myAccount,true);
 		theAccountDAO.doWork();
 
