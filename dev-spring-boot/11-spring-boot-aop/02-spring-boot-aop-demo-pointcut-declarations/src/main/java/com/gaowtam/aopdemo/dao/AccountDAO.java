@@ -2,6 +2,8 @@ package com.gaowtam.aopdemo.dao;
 
 import com.gaowtam.aopdemo.Account;
 
+import java.util.List;
+
 public interface AccountDAO {
 
 //    void addAccount();
@@ -19,4 +21,9 @@ public interface AccountDAO {
     public String getServiceCode();
 
     public void setServiceCode(String serviceCode);
+
+    // add a new method : findAccount
+    List<Account> findAccount();
+
+    List<Account> findAccount(boolean tripWire);
 }
